@@ -3,12 +3,12 @@ enum ProductType: String, CaseIterable {
     case dealForcer = "Deal Forcer"
     case kadencePlanner = "Kadence Planner"
     case mailCannon = "Mail Cannon"
+}
 
-    func displayProductOfferings() {
-        print("There are \(ProductType.allCases.count) products: ")
-        for product in ProductType.allCases {
-            print(product.rawValue)
-        }
+func displayProductOfferings() {
+    print("There are \(ProductType.allCases.count) products: ")
+    for product in ProductType.allCases {
+        print(product.rawValue)
     }
 }
 
@@ -57,3 +57,14 @@ func sendOrderConfirmation(
                 }
         }
 }
+
+displayProductOfferings()
+
+var myEdition = Edition.basic
+myEdition.upgrade()
+
+sendOrderConfirmation(
+    of: ProductType.aceRepository,
+    in: myEdition,
+    by: DeliveryMethod.shipping(weight: 1)
+)
